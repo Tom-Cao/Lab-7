@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>GEOG 464 - Lab 7</title>
+
+    <!--put your external stylesheet links here-->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- link to leaflet styles -->
+    <link rel="stylesheet" type="text/css" href="lib/leaflet/leaflet.css" />
+    <!-- link to leaflet scripts -->
+    <script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
+
+    <!--you can also place internal styles here; you would place these within <style> tags-->
+  </head>
+
+  <body>
+    <!--put your initial page content here-->
+    <div id="div1">
+      <h1>Interactive Web Atlas</h1>
+      <p>Select a dataset from the menu to load it onto the map.</p>
+      <label for="mapdropdown">Choose a map to load:</label>
+      <!-- Map selector dropdown -->
+      <select class="li-nav" name="mapdropdown" id="mapdropdown">
+        <option value="map0" selected="selected" disabled>Load a map</option>
+        <option value="mapa">Map A &mdash; Canadian Train Stations</option>
+        <option value="mapb">Map B &mdash; Global Megacities</option>
+      </select>
+      <p>
+        <strong>Q2.</strong> The <code>styleAll</code> function assembles a
+        style object containing Leaflet path options. It starts with default
+        symbol properties, then checks each feature: if the feature is a point
+        it enables stroke and radius, and if a postal code exists it swaps the
+        fill to cyan; the completed style object is returned for Leaflet to
+        render the marker.
+      </p>
+      <p>
+        <strong>Q4.</strong> In this context <code>feature</code> is the raw
+        GeoJSON feature with its geometry and attribute properties, while
+        <code>layer</code> is the Leaflet layer that was created to draw that
+        feature on the map.
+      </p>
+      <p>
+        <strong>Q5.</strong> <code>layer.options.fill</code> is an attribute
+        stored on the layer that controls how the symbol should be drawn,
+        whereas <code>layer.getLatLng()</code> is a method call that calculates
+        and returns a new Leaflet <code>LatLng</code> object describing the
+        feature&rsquo;s coordinates.
+      </p>
+      <p>
+        <strong>Q6.</strong> After reloading, the circle markers lost their
+        interior fill and their radius jumped to 80 pixels, so every station
+        appeared as a large hollow black ring creating a visual mess on the map.
+      </p>
+    </div>
+
+    <div id="mapdiv"></div>
+
+    <!--you can also use this space for internal scripts; you would place these within <script> tags-->
+
+    <!--put your external script links here-->
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
